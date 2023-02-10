@@ -1,0 +1,14 @@
+<div style="margin-left: 25 px;">
+  <table id="customers">
+    <thead>
+      <tr>
+        <th>Fornecedores</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of dataTable">
+        <th>{{ item.category_name }}</th>
+      </tr>
+    </tbody>
+  </table>
+</div>

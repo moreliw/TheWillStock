@@ -1,1 +1,21 @@
-//css
+.nav-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 30px;
+  
+    .nav-item {
+      display: inline-block;
+      margin-right: 10em;
+  
+      .nav-link {
+        color: #333;
+        text-decoration: none;
+        font-weight: bold;
+        &:hover {
+          color: #000;
+        }
+      }
+    }
+  }
