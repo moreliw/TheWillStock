@@ -9,9 +9,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CategoryComponent } from './category/category.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
-  declarations: [AppComponent, ProductStockListComponent, CategoryComponent],
+  declarations: [AppComponent, ProductStockListComponent, CategoryComponent, NavComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
