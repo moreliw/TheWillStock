@@ -1,35 +1,51 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Product } from '../models/product';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-product-stock-list',
   templateUrl: './product-stock-list.component.html',
   styleUrls: ['./product-stock-list.component.scss'],
 })
-export class ProductStockListComponent {
-  data = [
-    { column1: 'value1', column2: 'value2' },
-    { column1: 'value3', column2: 'value4' },
-  ];
-  dataTable: PeriodicElement[] = [
+export class ProductStockListComponent implements OnInit{
+
+  public productForm: FormGroup;
+
+  public productList: Product[] = [
     { id: 1, product_name: 'Camisas', category_name: 'Vestuário', quantity: 4 },
     { id: 2, product_name: 'Calças', category_name: 'Vestuário', quantity: 5 },
-    {
-      id: 3,
-      product_name: 'Jaquetas',
-      category_name: 'Vestuário',
-      quantity: 8,
-    },
+    { id: 3, product_name: 'Jaquetas', category_name: 'Vestuário', quantity: 8, },
   ];
 
-  routerName: '/product-stock-form' | undefined;
+  public product: Product;
+  public selectedProduct = false;
+  public teste: string;
 
-  teste() {
-    console.log("funciona");
+  constructor(private form: FormBuilder) {
+    this.buildForm();
   }
-}
 
-export interface PeriodicElement {
-  id: number;
-  product_name: string;
-  category_name: string;
-  quantity: number;
+  ngOnInit(): void {
+  }
+
+  buildForm() {
+    this.productForm = this.form.group({
+      product_name: ['', Validators.required],
+      category_name: [''],
+      quantity: ['', Validators.required]
+    });
+  }
+
+  stockCreate() {
+    console.log(this.productForm.value)
+  }
+
+  productSelected(product: Product) {
+    this.selectedProduct = true;
+    this.productForm.patchValue(product);
+  }
+
+  back() {
+    this.selectedProduct = false;
+    this.product = null;
+  }
 }

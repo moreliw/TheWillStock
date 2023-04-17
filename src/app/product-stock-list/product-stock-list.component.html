@@ -1,25 +1,72 @@
-<div class="position-button">
-  <button routerLink="/product-stock-form">
-    Adicionar Estoque
-  </button>
+<div class="row">
+  <div [ngClass]="selectedProduct ? 'col-sm-6' : 'col-sm-12'">
+    <div class="position-button">
+      <button (click)="productSelected(null)">
+        Adicionar Estoque
+      </button>
+    </div>
+    <div style="margin-left: 25 px">
+      <table id="customers">
+        <thead>
+          <tr>
+            <th>Código do Produto</th>
+            <th>Produto</th>
+            <th>Categoria</th>
+            <th>Quantidade</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of productList" style="cursor: pointer;" (click)="productSelected(product)">
+            <td>{{ product.id }}</td>
+            <td>{{ product.product_name }}</td>
+            <td>{{ product.category_name }}</td>
+            <td>{{ product.quantity }}</td>
+            <td>
+              <div class="btn-group">
+                <button class="btn btn-sm btn-outline-warning">
+                  Detalhar
+                </button>
+
+                <button class="btn btn-sm btn-outline-primary">
+                  Editar
+                </button>
+
+                <button class="btn btn-sm btn-outline-danger">
+                  Excluir
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="col-sm-6" *ngIf="selectedProduct">
+    <div class="mb-3" >
+      <button (click)="back()">
+        Voltar
+      </button>
+    </div>
+    <form [formGroup]="productForm" (submit)="stockCreate()">
+      <div class="mb-3">
+        <label class="form-label">Produto</label>
+        <input class="form-control" formControlName="product_name">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Quantidade</label>
+        <input class="form-control" formControlName="quantity">
+      </div>
+      <div style="text-align: end;">
+        <button [disabled]="!productForm.valid">Enviar</button>
+      </div>
+    </form>
+  </div>
 </div>
-<div style="margin-left: 25 px">
-  <table id="customers">
-    <thead>
-      <tr>
-        <th>Código do Produto</th>
-        <th>Produto</th>
-        <th>Categoria</th>
-        <th>Quantidade</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of dataTable">
-        <th>{{ item.id }}</th>
-        <th>{{ item.product_name }}</th>
-        <th>{{ item.category_name }}</th>
-        <th>{{ item.quantity }}</th>
-      </tr>
-    </tbody>
-  </table>
-</div>
+
+
+
+
+
+

@@ -5,7 +5,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductStockListComponent } from './product-stock-list/product-stock-list.component';
 import { SupplierComponent } from './supplier/supplier.component';
 import { ProductListComponent } from './product-list/product-list.component';
-import { ProductStockFormComponent } from './product-stock-form/product-stock-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -14,7 +13,6 @@ const routes: Routes = [
   { path: 'category', component: CategoryComponent },
   { path: 'supplier', component: SupplierComponent },
   { path: 'product-list', component: ProductListComponent },
-  { path: 'product-stock-form', component: ProductStockFormComponent },
 ];
 
 @NgModule({
