@@ -10,9 +10,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CategoryComponent } from './category/category.component';
 import { NavComponent } from './nav/nav.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { ProductStockFormComponent } from './product-stock-form/product-stock-form.component';
 
 @NgModule({
-  declarations: [AppComponent, ProductStockListComponent, CategoryComponent, NavComponent],
+  declarations: [AppComponent, ProductStockListComponent, CategoryComponent, NavComponent, ProductListComponent, ProductStockFormComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

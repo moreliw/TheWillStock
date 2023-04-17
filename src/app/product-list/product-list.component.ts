@@ -1,14 +1,11 @@
 import { Component } from '@angular/core';
+
 @Component({
-  selector: 'app-product-stock-list',
-  templateUrl: './product-stock-list.component.html',
-  styleUrls: ['./product-stock-list.component.scss'],
+  selector: 'app-product-list',
+  templateUrl: './product-list.component.html',
+  styleUrls: ['./product-list.component.scss']
 })
-export class ProductStockListComponent {
-  data = [
-    { column1: 'value1', column2: 'value2' },
-    { column1: 'value3', column2: 'value4' },
-  ];
+export class ProductListComponent {
   dataTable: PeriodicElement[] = [
     { id: 1, product_name: 'Camisas', category_name: 'Vestuário', quantity: 4 },
     { id: 2, product_name: 'Calças', category_name: 'Vestuário', quantity: 5 },
@@ -20,11 +17,7 @@ export class ProductStockListComponent {
     },
   ];
 
-  routerName: '/product-stock-form' | undefined;
 
-  teste() {
-    console.log("funciona");
-  }
 }
 
 export interface PeriodicElement {

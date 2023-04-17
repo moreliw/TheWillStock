@@ -5,13 +5,26 @@ import { Component } from '@angular/core';
   styleUrls: ['./category.component.scss'],
 })
 export class CategoryComponent {
-  dataTable: PeriodicElement[] = [
-    { category_name: "Camisa" },
-    { category_name: "Casaco" },
-    { category_name: "Calça" },
-    { category_name: "Bermuda" },
+  dataTable: Category[] = [
+    {
+      id: '1',
+      category_name: "Camisa"
+    },
+    {
+      id: '2',
+      category_name: "Casaco"
+    },
+    {
+      id: '3',
+      category_name: "Calça"
+    },
+    {
+      id: '4',
+      category_name: "Bermuda"
+    },
   ];
 }
-export interface PeriodicElement {
+export interface Category {
+  id: string;
   category_name: string;
 }

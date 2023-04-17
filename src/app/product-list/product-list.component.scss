@@ -28,22 +28,3 @@
 .example-spacer {
   flex: 1 1 auto;
 }
-
-button {
-  padding: 10px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.position-button {
-  text-align: end;
-  margin-bottom: 10px;
-}
