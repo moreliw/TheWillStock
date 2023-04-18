@@ -1,21 +1,23 @@
-.nav-list {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    padding: 0;
-    margin: 30px;
-  
-    .nav-item {
-      display: inline-block;
-      margin-right: 10em;
-  
-      .nav-link {
-        color: #333;
-        text-decoration: none;
-        font-weight: bold;
-        &:hover {
-          color: #000;
-        }
-      }
-    }
-  }
+.item1 { grid-area: header; }
+.item2 { grid-area: menu; }
+.item3 { grid-area: main; }
+.item4 { grid-area: footer; }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: 100px 1fr 100px;
+  grid-template-areas:
+    'header header'
+    'menu main'
+    'footer footer';
+  background-color: #ffffff;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}

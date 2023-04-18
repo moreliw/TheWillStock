@@ -8,9 +8,11 @@ import { CategoryComponent } from './category/category.component';
 import { NavComponent } from './nav/nav.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-  declarations: [AppComponent, ProductStockListComponent, CategoryComponent, NavComponent, ProductListComponent],
+  declarations: [AppComponent, ProductStockListComponent, CategoryComponent, NavComponent, ProductListComponent, HeaderComponent, FooterComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
