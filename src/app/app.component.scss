@@ -5,7 +5,7 @@
 
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 1fr 8fr;
   grid-template-rows: 100px 1fr 100px;
   grid-template-areas:
     'header header'
@@ -20,4 +20,18 @@
   text-align: center;
   padding: 20px 0;
   font-size: 30px;
+}
+
+.grid-container[_ngcontent-tvb-c56] > div[_ngcontent-tvb-c56] {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+.main-panel {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: justify !important;
+  padding: 0px !important;
+  font-size: 15px !important;
 }

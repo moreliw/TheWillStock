@@ -1,19 +1,21 @@
 <div style="margin-left: 25 px">
-  <table id="customers">
+  <table id="customers"><caption></caption>
     <thead>
       <tr>
-        <th>Código do Produto</th>
-        <th>Produto</th>
-        <th>Categoria</th>
-        <th>Quantidade</th>
+        <th scope="col">Código do Produto</th>
+        <th scope="col">Produto</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Quantidade</th>
+        <th scope="col">Peso</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let item of dataTable">
-        <th>{{ item.id }}</th>
-        <th>{{ item.product_name }}</th>
-        <th>{{ item.category_name }}</th>
-        <th>{{ item.quantity }}</th>
+        <th scope="col">{{ item.id }}</th>
+        <th scope="col">{{ item.product_name }}</th>
+        <th scope="col">{{ item.category_name }}</th>
+        <th scope="col">{{ item.quantity }}</th>
+        <th scope="col">{{ item.weight }}</th>
       </tr>
     </tbody>
   </table>
