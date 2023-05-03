@@ -1,22 +1,86 @@
-<div style="margin-left: 25 px">
-  <table id="customers"><caption></caption>
-    <thead>
-      <tr>
-        <th scope="col">Código do Produto</th>
-        <th scope="col">Produto</th>
-        <th scope="col">Categoria</th>
-        <th scope="col">Quantidade</th>
-        <th scope="col">Peso</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of dataTable">
-        <th scope="col">{{ item.id }}</th>
-        <th scope="col">{{ item.product_name }}</th>
-        <th scope="col">{{ item.category_name }}</th>
-        <th scope="col">{{ item.quantity }}</th>
-        <th scope="col">{{ item.weight }}</th>
-      </tr>
-    </tbody>
-  </table>
+<div class="row">
+  <div [ngClass]="addProduct ? 'col-sm-6' : 'col-sm-12'">
+    <div class="d-flex alignDiv mb-2">
+
+      <p class="fontTitle">Produtos</p>
+
+      <button (click)="productSelected(null)">
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+            <path fill="none" d="M0 0h24v24H0z">
+
+            </path>
+            <path fill="currentColor" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z">
+
+            </path>
+          </svg> Adicionar produto
+        </span>
+      </button>
+
+    </div>
+
+    <div style="margin-left: 25 px">
+      <table id="customers"><caption></caption>
+        <thead>
+          <tr>
+            <th scope="col">Código</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Categoria</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of dataTable | paginate: { itemsPerPage: 15, currentPage: p } ">
+            <th scope="col">{{ item.id }}</th>
+            <th scope="col">{{ item.product_name }}</th>
+            <th scope="col">{{ item.description }}</th>
+            <th scope="col">{{ item.category_name }}</th>
+            <th scope="col">
+                <i class="fas fa-trash" style="cursor: pointer"></i>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+
+      <pagination-controls
+        class="page"
+        (pageChange)="p = $event"
+        previousLabel="Anterior"
+        nextLabel="Próxima">
+      </pagination-controls>
+    </div>
+
+  </div>
+
+
+
+  <div class="col-sm-6" *ngIf="addProduct">
+    <div class="mb-3" >
+      <button (click)="back()">
+        Voltar
+      </button>
+    </div>
+    <form [formGroup]="productForm" (submit)="stockCreate()">
+      <div class="mb-3">
+        <label class="form-label">Código</label>
+        <input class="form-control" formControlName="id">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Nome</label>
+        <input class="form-control" formControlName="product_name">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Descrição</label>
+        <input class="form-control" formControlName="description">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Categoria</label>
+        <input class="form-control" formControlName="category_name">
+      </div>
+      <div style="text-align: end;">
+        <button [disabled]="!productForm.valid">Enviar</button>
+      </div>
+    </form>
+  </div>
 </div>

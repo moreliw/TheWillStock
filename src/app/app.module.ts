@@ -10,6 +10,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [AppComponent, ProductStockListComponent, CategoryComponent, NavComponent, ProductListComponent, HeaderComponent, FooterComponent],
@@ -18,7 +19,8 @@ import { FooterComponent } from './footer/footer.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent],

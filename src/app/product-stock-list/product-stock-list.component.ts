@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../models/product';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ProductStock } from '../models/prodcut-stock';
 @Component({
   selector: 'app-product-stock-list',
   templateUrl: './product-stock-list.component.html',
@@ -10,13 +10,13 @@ export class ProductStockListComponent implements OnInit{
 
   public productForm: FormGroup;
 
-  public productList: Product[] = [
+  public productList: ProductStock[] = [
     { id: 1, product_name: 'Camisas', category_name: 'Vestuário', quantity: 4 },
     { id: 2, product_name: 'Calças', category_name: 'Vestuário', quantity: 5 },
     { id: 3, product_name: 'Jaquetas', category_name: 'Vestuário', quantity: 8, },
   ];
 
-  public product: Product;
+  public product: ProductStock;
   public selectedProduct = false;
   public teste: string;
 
@@ -39,7 +39,7 @@ export class ProductStockListComponent implements OnInit{
     console.log(this.productForm.value)
   }
 
-  productSelected(product: Product) {
+  productSelected(product: ProductStock) {
     this.selectedProduct = true;
     this.productForm.patchValue(product);
   }

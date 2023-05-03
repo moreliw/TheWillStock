@@ -1,6 +1,6 @@
-export class Product {
+export class ProductStock {
   id: number;
   product_name: string;
-  description: string;
   category_name: string;
+  quantity: number;
 }
