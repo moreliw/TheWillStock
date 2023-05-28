@@ -38,12 +38,25 @@ export class ProductListComponent {
 
   buildForm() {
     this.productForm = this.form.group({
-      id: ['', Validators.required],
-      product_name: ['', Validators.required],
-      description: [''],
-      category_name: ['', Validators.required]
+      nome: ['', Validators.required],
+      descricao: [''],
+      preco: ['', Validators.required],
+      quantidade: ['', Validators.required],
+      idCategoria: ['', Validators.required]
     });
   }
+
+  createNewProduct(): void {
+    console.log(this.productForm.value);
+    this.productService.createProduct(this.productForm.value).subscribe({
+        next: () => {
+            this.loadProducts();
+        },
+        error: () => {
+            "ERRO"
+        },
+    });
+}
 
   stockCreate() {
     // console.log(this.productForm.value)
