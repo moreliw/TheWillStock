@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Product } from '../models/product';
+import { ProductService } from './product-list.service';
 
 @Component({
   selector: 'app-product-list',
@@ -9,26 +10,31 @@ import { Product } from '../models/product';
 })
 export class ProductListComponent {
   p: number = 1;
-  dataTable: Product[] = [
-    { id: 1, product_name: 'Arroz Integral', description: 'Arroz Integral 1kg', category_name: 'Arroz' },
-    {
-      id: 3,
-      product_name: 'Granola Açaí',
-      description: 'Granola + Açaí 500g',
-      category_name: 'Granola',
-    },
-  ];
+  productList: Product[] = [];
   public productForm: FormGroup;
   addProduct: boolean;
   public product: Product;
   public teste: string;
 
-  constructor(private form: FormBuilder) {
+  constructor(private form: FormBuilder, private productService: ProductService) {
     this.buildForm();
   }
 
   ngOnInit(): void {
+    this.loadProducts();
   }
+
+  loadProducts(): void {
+    this.productService.getAllProducts().subscribe({
+        next: response => {
+            this.productList = response;
+            console.log(this.productList);
+        },
+        error: () => {
+            "ERRO"
+        },
+    });
+}
 
   buildForm() {
     this.productForm = this.form.group({
@@ -40,7 +46,7 @@ export class ProductListComponent {
   }
 
   stockCreate() {
-    console.log(this.productForm.value)
+    // console.log(this.productForm.value)
   }
 
   productSelected(product: Product) {

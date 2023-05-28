@@ -31,11 +31,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of dataTable | paginate: { itemsPerPage: 15, currentPage: p } ">
+          <tr *ngFor="let item of productList | paginate: { itemsPerPage: 15, currentPage: p } ">
             <th scope="col">{{ item.id }}</th>
-            <th scope="col">{{ item.product_name }}</th>
-            <th scope="col">{{ item.description }}</th>
-            <th scope="col">{{ item.category_name }}</th>
+            <th scope="col">{{ item.nome }}</th>
+            <th scope="col">{{ item.descricao }}</th>
+            <th scope="col">{{ item.preco }}</th>
             <th scope="col">
                 <i class="fas fa-trash" style="cursor: pointer"></i>
             </th>
