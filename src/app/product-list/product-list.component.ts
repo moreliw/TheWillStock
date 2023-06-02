@@ -48,7 +48,6 @@ export class ProductListComponent {
   }
 
   createNewProduct(): void {
-    console.log(this.productForm.value);
     this.productService.createProduct(this.productForm.value).subscribe({
         next: () => {
             this.loadProducts();
