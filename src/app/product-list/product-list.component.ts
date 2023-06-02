@@ -21,6 +21,7 @@ export class ProductListComponent {
   }
 
   ngOnInit(): void {
+    console.log("teste")
     this.loadProducts();
   }
 
