@@ -1,13 +1,16 @@
-import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Product } from '../models/product';
 import { ProductService } from './product-list.service';
+import { ProductFormComponent } from './product-form/product-form.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.scss']
+  styleUrls: ['./product-list.component.scss'],
 })
+
 export class ProductListComponent {
   p: number = 1;
   productList: Product[] = [];
@@ -15,13 +18,18 @@ export class ProductListComponent {
   addProduct: boolean;
   public product: Product;
   public teste: string;
+  public productListMock: Product[] = [];
 
-  constructor(private form: FormBuilder, private productService: ProductService) {
+  constructor(
+    private form: FormBuilder,
+    private productService: ProductService,
+    private modalService: NgbModal
+    ) {
     this.buildForm();
   }
 
   ngOnInit(): void {
-    console.log("teste")
+    this.loadProductsMock();
     this.loadProducts();
   }
 
@@ -35,13 +43,18 @@ export class ProductListComponent {
             "ERRO"
         },
     });
-}
+  }
+
+  loadProductsMock(): void {
+    this.productListMock = this.productService.getAllMockProducts();
+  }
 
   buildForm() {
     this.productForm = this.form.group({
       nome: ['', Validators.required],
       descricao: [''],
-      preco: ['', Validators.required],
+      precoCusto: ['', Validators.required],
+      precoVenda: ['', Validators.required],
       quantidade: ['', Validators.required],
       idCategoria: ['', Validators.required]
     });
@@ -71,5 +84,10 @@ export class ProductListComponent {
     this.addProduct = false;
     this.product = null;
   }
+
+  openModal() {
+    this.modalService.open(ProductFormComponent);
+  }
+
 
 }

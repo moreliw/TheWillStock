@@ -1,14 +1,94 @@
-<div style="margin-left: 25 px;">
-  <table id="customers">
-    <thead>
-      <tr>
-        <th>Categoria</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of dataTable">
-        <th>{{ item.category_name }}</th>
-      </tr>
-    </tbody>
-  </table>
+<div class="row">
+  <div>
+    <div class="d-flex alignDiv mb-2">
+
+      <p class="fontTitle">Categorias</p>
+
+      <button>
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+            <path fill="none" d="M0 0h24v24H0z">
+
+            </path>
+            <path fill="currentColor" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z">
+
+            </path>
+          </svg> Adicionar categoria
+        </span>
+      </button>
+
+    </div>
+
+    <div style="margin-left: 25 px">
+      <table id="customers"><caption></caption>
+        <thead>
+          <tr>
+            <th scope="col">Código</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Descrição</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of dataTable | paginate: { itemsPerPage: 15, currentPage: p } ">
+            <th scope="col">{{ item.id }}</th>
+            <th scope="col">{{ item.nome }}</th>
+            <th scope="col">{{ item.descricao }}</th>
+            <th scope="col" style="text-align: center;">
+              <i style="cursor: pointer; margin-right: 10px;" title="Excluir"><app-icon icon="icon-trash.svg" sizeIcon="22%"></app-icon></i>
+              <i style="cursor: pointer; margin-right: 10px;" title="Editar"><app-icon icon="icon-edit.svg" sizeIcon="22%"></app-icon></i>
+              <i style="cursor: pointer" title="Duplicar"><app-icon icon="icon-copy.svg" sizeIcon="22%"></app-icon></i>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+
+      <pagination-controls
+        class="page"
+        (pageChange)="p = $event"
+        previousLabel="Anterior"
+        nextLabel="Próxima">
+      </pagination-controls>
+    </div>
+
+  </div>
+
+
+
+  <!-- <div class="col-sm-6" *ngIf="addProduct">
+    <div class="mb-3" >
+      <button (click)="back()">
+        Voltar
+      </button>
+    </div>
+    <form [formGroup]="productForm" (submit)="stockCreate()">
+      <div class="mb-3">
+        <label class="form-label">Nome do produto</label>
+        <input class="form-control" formControlName="nome">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Descrição</label>
+        <input class="form-control" formControlName="descricao">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Preço custo</label>
+        <input class="form-control" formControlName="precoCusto">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Preço venda</label>
+        <input class="form-control" formControlName="precoVenda">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Quantidade</label>
+        <input class="form-control" formControlName="quantidade">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Categoria</label>
+        <input class="form-control" formControlName="idCategoria">
+      </div>
+      <div style="text-align: end;">
+        <button (click)="createNewProduct()" [disabled]="!productForm.valid">Enviar</button>
+      </div>
+    </form>
+  </div> -->
 </div>

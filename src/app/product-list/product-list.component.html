@@ -4,7 +4,7 @@
 
       <p class="fontTitle">Produtos</p>
 
-      <button (click)="productSelected(null)">
+      <button (click)="openModal()">
         <span>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
             <path fill="none" d="M0 0h24v24H0z">
@@ -26,18 +26,24 @@
             <th scope="col">Código</th>
             <th scope="col">Nome</th>
             <th scope="col">Descrição</th>
+            <th scope="col">Preço Custo</th>
+            <th scope="col">Preço Venda</th>
             <th scope="col">Categoria</th>
             <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of productList | paginate: { itemsPerPage: 15, currentPage: p } ">
+          <tr *ngFor="let item of productListMock | paginate: { itemsPerPage: 15, currentPage: p } ">
             <th scope="col">{{ item.id }}</th>
             <th scope="col">{{ item.nome }}</th>
             <th scope="col">{{ item.descricao }}</th>
-            <th scope="col">{{ item.preco }}</th>
-            <th scope="col">
-                <i class="fas fa-trash" style="cursor: pointer"></i>
+            <th scope="col">R$ {{ item.precoCusto }}</th>
+            <th scope="col">R$ {{ item.precoVenda }}</th>
+            <th scope="col">{{ item.category.nome }}</th>
+            <th scope="col" style="text-align: center;">
+              <i style="cursor: pointer; margin-right: 10px;" title="Excluir"><app-icon icon="icon-trash.svg" sizeIcon="22%"></app-icon></i>
+              <i style="cursor: pointer; margin-right: 10px;" title="Editar"><app-icon icon="icon-edit.svg" sizeIcon="22%"></app-icon></i>
+              <i style="cursor: pointer" title="Duplicar"><app-icon icon="icon-copy.svg" sizeIcon="22%"></app-icon></i>
             </th>
           </tr>
         </tbody>
@@ -71,8 +77,12 @@
         <input class="form-control" formControlName="descricao">
       </div>
       <div class="mb-3">
-        <label class="form-label">Preço</label>
-        <input class="form-control" formControlName="preco">
+        <label class="form-label">Preço custo</label>
+        <input class="form-control" formControlName="precoCusto">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Preço venda</label>
+        <input class="form-control" formControlName="precoVenda">
       </div>
       <div class="mb-3">
         <label class="form-label">Quantidade</label>
@@ -88,3 +98,15 @@
     </form>
   </div>
 </div>
+
+<ng-template #modalContent>
+  <div class="modal-header">
+    <h4 class="modal-title">Título do Modal</h4>
+    <button type="button" class="close" aria-label="Fechar">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Conteúdo do modal.</p>
+  </div>
+</ng-template>

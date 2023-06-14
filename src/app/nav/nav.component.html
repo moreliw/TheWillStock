@@ -1,7 +1,9 @@
 <nav class="admin__nav">
   <ul class="menu">
     <li class="menu__item">
-      <a (click)="navigate('stock-list')" class="menu__link" routerLinkActive="active">Estoque</a>
+      <a (click)="navigate('stock-list')" class="menu__link" routerLinkActive="active"></a>
+        <span class="menu__link--default menu__link">Estoque</span>
+        <span class="menu__link--hover menu__link">Ver estoque</span>
     </li>
     <li class="menu__item">
       <a class="menu__link" (click)="navigate('product-list')">Produtos</a>
@@ -13,7 +15,7 @@
       <a class="menu__link" (click)="navigate('supplier')">Fornecedores</a>
     </li>
     <li class="menu__item">
-      <a class="menu__link" (click)="navigate('supplier')">Clientes</a>
+      <a class="menu__link" (click)="navigate('customers')">Clientes</a>
     </li>
   </ul>
 </nav>

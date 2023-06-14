@@ -12,9 +12,25 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { IconComponent } from './icon/icon.component';
+import { SupplierComponent } from './supplier/supplier.component';
+import { CustomersComponent } from './customers/customers.component';
+import { ProductFormComponent } from './product-list/product-form/product-form.component';
 
 @NgModule({
-  declarations: [AppComponent, ProductStockListComponent, CategoryComponent, NavComponent, ProductListComponent, HeaderComponent, FooterComponent],
+  declarations: [
+    AppComponent,
+    ProductStockListComponent,
+    CategoryComponent,
+    NavComponent,
+    ProductListComponent,
+    HeaderComponent,
+    FooterComponent,
+    IconComponent,
+    SupplierComponent,
+    CustomersComponent,
+    ProductFormComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -23,6 +39,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     NgxPaginationModule,
     HttpClientModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent],
