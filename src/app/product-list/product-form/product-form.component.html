@@ -1,22 +1,37 @@
 <form class="form">
-  <p class="title">Register </p>
-  <p class="message">Signup now and get full access to our app. </p>
-      <div class="flex">
+  <div class="d-flex" style="justify-content: space-between">
+    <p class="title">Adicionar produto </p>
+    <span (click)="closeModal()" style="text-align: end; cursor: pointer;"><app-icon icon="icon-close.svg" sizeIcon="30%"></app-icon></span>
+  </div>
+
+  <div class="flex">
       <label>
           <input required="" placeholder="" type="text" class="input">
-          <span>Firstname</span>
+          <span>Código</span>
       </label>
 
       <label>
           <input required="" placeholder="" type="text" class="input">
-          <span>Lastname</span>
+          <span>Nome</span>
       </label>
   </div>
 
   <label>
       <input required="" placeholder="" type="email" class="input">
-      <span>Email</span>
+      <span>Descrição</span>
   </label>
+
+  <div class="flex">
+    <label>
+        <input required="" placeholder="" type="text" class="input" id="custo">
+        <span>Preço custo</span>
+    </label>
+
+    <label>
+        <input required="" placeholder="" type="text" class="input">
+        <span>Preço venda</span>
+    </label>
+</div>
 
   <label>
       <input required="" placeholder="" type="password" class="input">
