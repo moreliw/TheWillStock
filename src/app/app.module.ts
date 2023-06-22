@@ -17,6 +17,7 @@ import { IconComponent } from './icon/icon.component';
 import { SupplierComponent } from './supplier/supplier.component';
 import { CustomersComponent } from './customers/customers.component';
 import { ProductFormComponent } from './product-list/product-form/product-form.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ProductFormComponent } from './product-list/product-form/product-form.c
     ReactiveFormsModule,
     NgxPaginationModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    NgSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent],
